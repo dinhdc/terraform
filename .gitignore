@@ -1,4 +1,5 @@
 # Created by https://www.toptal.com/developers/gitignore/api/terraform
+.idea
 # Edit at https://www.toptal.com/developers/gitignore?templates=terraform
 ### Terraform ###
 # Local .terraform directories
@@ -7,6 +8,7 @@
 # .tfstate files
 *.tfstate
 *.tfstate.*
+*.lock.hcl
 
 # Crash log files
 crash.log
