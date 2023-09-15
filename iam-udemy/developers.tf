@@ -11,9 +11,7 @@ resource "aws_iam_group_policy" "developers_policy" {
           "iam:GenerateCredentialReport",
           "iam:GenerateServiceLastAccessedDetails",
           "iam:Get*",
-          "iam:List*",
-          "iam:SimulateCustomPolicy",
-          "iam:SimulatePrincipalPolicy"
+          "iam:List*"
         ],
         Resource = "*"
       }
