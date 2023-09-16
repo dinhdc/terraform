@@ -17,24 +17,24 @@ resource "aws_instance" "ec2-terraform" {
     Name = "ec2-terraform"
   }
 
-  user_data = <<EOF
+  user_data = <<-EOF
     #!bin/bash
     yum update -y
-    yum install -y httpd
+    yum install httpd -y
     systemctl start httpd
     systemctl enable httpd
-    echo "<h1>Hello world from \$(hostname -f)</h1>" > /var/www/html/index.html
+    echo "<h1>Hello world from terraform</h1>" > /var/www/html/index.html
   EOF
 
-  vpc_security_group_ids = [aws_security_group.allow_http.id]
+  vpc_security_group_ids = [aws_security_group.ec2-terraform-security.id]
 }
 
 output "instance_ip" {
   value = aws_instance.ec2-terraform.public_ip
 }
 
-resource "aws_security_group" "allow_http" {
-  name        = "allow_http"
+resource "aws_security_group" "ec2-terraform-security" {
+  name        = "ec2-terraform-security"
   description = "Allow Http inbound traffic"
 
   ingress {
