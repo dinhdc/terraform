@@ -14,13 +14,13 @@ output "ec2_bastion_public_ip" {
 }
 
 # Private EC2 Instances
-## ec2_private_instance_ids
+# Private EC2 Instances
 output "ec2_private_instance_ids" {
-  description = "List of IDs of instances"
-  value       = module.ec2_private.id
+  description = "Map of instance IDs for private EC2 instances"
+  value       = { for key, instance in module.ec2_private : key => instance.id }
 }
-## ec2_private_ip
+
 output "ec2_private_ip" {
-  description = "List of private IP addresses assigned to the instances"
-  value       = module.ec2_private.private_ip
+  description = "Map of private IP addresses for private EC2 instances"
+  value       = { for key, instance in module.ec2_private : key => instance.private_ip }
 }
