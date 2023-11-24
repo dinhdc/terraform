@@ -15,7 +15,6 @@ module "ec2_private" {
   for_each               = local.multiple_instances
   instance_type          = each.value.instance_type
   subnet_id              = each.value.subnet_id
-  availability_zone      = each.value.availability_zone
 
 
   user_data = file("${path.module}/app1-install.sh")

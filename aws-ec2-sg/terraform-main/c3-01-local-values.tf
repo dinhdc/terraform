@@ -14,14 +14,14 @@ locals {
       num_suffix        = 1
       instance_type     = var.instance_type
       subnet_id         = element(module.vpc.private_subnets, 0)
-      availability_zone = "ap-southeast-1a"
+      # availability_zone = "ap-southeast-1a"
       # availability_zone = var.vpc_availability_zones[0]
     }
     1 = {
       num_suffix        = 2
       instance_type     = var.instance_type
       subnet_id         = element(module.vpc.private_subnets, 1)
-      availability_zone = "ap-southeast-1b"
+      # availability_zone = "ap-southeast-1b"
       # availability_zone = var.vpc_availability_zones[1]
     }
   }
