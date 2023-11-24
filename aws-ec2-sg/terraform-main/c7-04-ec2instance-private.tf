@@ -6,7 +6,7 @@ module "ec2_private" {
   # required variables
   name = "${var.environment}-bastion-host"
 
-  key_name = var.instance_keypair
+  key_name = aws_key_pair.generated_key.key_name
   ami      = data.aws_ami.amzlinux2.id
   # monitoring             = true
   # subnet_id              = module.vpc.public_subnets[0]

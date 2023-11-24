@@ -14,10 +14,14 @@ output "ec2_bastion_public_ip" {
 }
 
 # Private EC2 Instances
-# Private EC2 Instances
 output "ec2_private_instance_ids" {
   description = "Map of instance IDs for private EC2 instances"
   value       = { for key, instance in module.ec2_private : key => instance.id }
+}
+
+output "ec2_private_instance_azs" {
+  description = "Map of instance IDs for private EC2 instances"
+  value       = { for key, instance in module.ec2_private : key => instance.availability_zone }
 }
 
 output "ec2_private_ip" {

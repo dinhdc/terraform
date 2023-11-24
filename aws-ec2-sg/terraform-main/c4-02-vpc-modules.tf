@@ -7,7 +7,7 @@ module "vpc" {
   # VPC Basic Details
   name            = "${local.name}-${var.vpc_name}"
   cidr            = var.vpc_cidr_block
-  azs             = var.vpc_availability_zones
+  azs             = ["ap-southeast-1a", "ap-southeast-1b"]
   public_subnets  = var.vpc_public_subnets
   private_subnets = var.vpc_private_subnets
 
